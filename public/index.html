@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internet Speed Test</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <span class="logo">FAST<span class="logo-dot">.</span></span>
+  </header>
+
+  <main>
+    <section class="speed" aria-live="polite">
+      <div class="label" id="speed-label">Your Internet speed is</div>
+      <div class="result-row">
+        <div class="value-group">
+          <span class="value" id="speed-value">0</span>
+          <span class="units" id="speed-units">Mbps</span>
+        </div>
+        <button class="action" id="action-btn" aria-label="Stop test" title="Stop">
+          <svg class="spinner" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="20"></circle></svg>
+          <svg class="refresh" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <button class="more-btn" id="more-btn" aria-expanded="false" aria-controls="more-info">Show more info</button>
+
+    <section class="more-info" id="more-info" hidden>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-title">Latency</div>
+          <div class="metric-pair">
+            <div>
+              <span class="metric-value" id="lat-unloaded">–</span><span class="metric-unit">ms</span>
+              <div class="metric-sub">unloaded</div>
+            </div>
+            <div>
+              <span class="metric-value" id="lat-loaded">–</span><span class="metric-unit">ms</span>
+              <div class="metric-sub">loaded</div>
+            </div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-title">Upload speed</div>
+          <div>
+            <span class="metric-value" id="up-value">–</span><span class="metric-unit" id="up-units">Mbps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div><span class="meta-label">Client</span> <span id="client-ip">–</span></div>
+        <div><span class="meta-label">Server</span> <span id="server-name">–</span></div>
+      </div>
+
+      <button class="link-btn" id="settings-btn" aria-expanded="false" aria-controls="settings">Settings</button>
+
+      <form class="settings" id="settings" hidden>
+        <label>Parallel connections
+          <span class="range-row"><input type="range" id="set-conn-min" min="1" max="8" step="1"> <output id="out-conn"></output></span>
+        </label>
+        <label>Test duration (seconds)
+          <span class="range-row">
+            min <input type="number" id="set-dur-min" min="3" max="60">
+            max <input type="number" id="set-dur-max" min="5" max="120">
+          </span>
+        </label>
+        <label class="check"><input type="checkbox" id="set-upload"> Always measure upload &amp; latency</label>
+        <div class="settings-actions">
+          <button type="submit" class="primary">Save</button>
+          <button type="button" id="set-default">Default</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">Speed measured against this site's own server.</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

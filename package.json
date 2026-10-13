@@ -1,0 +1,14 @@
+{
+  "name": "fast-clone",
+  "version": "1.0.0",
+  "description": "A fast.com-style internet speed test with its own Node.js backend",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
